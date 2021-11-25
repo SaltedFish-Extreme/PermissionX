@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PermissionX</string>
+    <string name="request_permission">请求单个权限</string>
+    <string name="request_permissions">请求多个权限</string>
+</resources>
