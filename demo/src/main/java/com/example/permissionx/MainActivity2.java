@@ -7,19 +7,16 @@ import android.widget.Toast;
 
 import com.permissionx.saltedfish.PermissionX;
 
-import java.util.Arrays;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity2 extends AppCompatActivity {
-
-    private final Button requestPermissionBtn = findViewById(R.id.requestPermissionButton);
-    private final Button requestPermissionsBtn = findViewById(R.id.requestPermissionsButton);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Button requestPermissionBtn = findViewById(R.id.requestPermissionButton);
+        Button requestPermissionsBtn = findViewById(R.id.requestPermissionsButton);
         requestPermissionBtn.setOnClickListener(v -> {
             //请求单个权限
             PermissionX.INSTANCE.requestPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE, b -> {
@@ -48,7 +45,7 @@ public class MainActivity2 extends AppCompatActivity {
                         for (String key : map.keySet()) {
                             if (!map.get(key)) {
                                 //未授予的权限执行的操作 这里弹出未授予的权限名
-                                Toast.makeText(this, "You denied " + Arrays.toString(key.split("\\.", 2)) + " permission", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, "You denied " + key.split("\\.")[2] + " permission", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
